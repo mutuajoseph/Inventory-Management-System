@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} About {% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat culpa veritatis nulla quasi doloremque commodi quam. 
+                Quisquam corporis et illum fuga harum assumenda sed perspiciatis, ullam ut dicta magnam blanditiis.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat culpa veritatis nulla quasi doloremque commodi quam. 
+                Quisquam corporis et illum fuga harum assumenda sed perspiciatis, ullam ut dicta magnam blanditiis.
+            </p>
+        </div>
+        <div class="col">
+            <div class="text-center">
+                <img src="/static/user.jpeg" class="rounded-circle" alt="...">
+              </div>
+        </div>
+      </div>
+</div>
+<div class="container mt-5">
+    <div class="row bg-info">
+        <div class="col-8">
+            <h3>My services</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut numquam quae laboriosam. Quam labore ducimus odio veritatis. Numquam, aliquam totam molestiae
+                sunt fuga ratione animi voluptates laudantium deleniti et praesentium!</p>
+            </div>
+        <div class="col-4">
+            <h3>Services</h3>
+            <ul>
+                <li>Running</li>
+                <li>Learning</li>
+                <li>Reading</li>
+            </ul>
+        </div>
+      </div>
+</div>
+{% endblock %}
+{% block footer %} {% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Line chart {% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+        <div class="container">
+            <div id="chart">
+                <embed type="image/svg+xml" src= {{ line|safe }} />
+            </div>
+        </div>
+       
+   
+{% endblock %}
+{% block footer %} {% endblock %}
+
+
