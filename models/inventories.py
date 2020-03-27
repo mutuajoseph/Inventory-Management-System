@@ -7,6 +7,8 @@ class Inventories(db.Model):
     type = db.Column(db.String(100), nullable=False)
     buying_price = db.Column(db.Integer, nullable=False)
     selling_price = db.Column(db.Integer, nullable=False)
+    sales = db.relationship('Sale', backref='inventory', lazy=True)
+    stocks = db.relationship('Stock', backref='inventory', lazy=True)
     
 
     # create record 
@@ -19,3 +21,16 @@ class Inventories(db.Model):
     def fetch_records(cls):
         inventory = cls.query.all()
         return inventory
+    
+    # fetch records id
+    @classmethod
+    def fetch_by_id(cls,id):
+        delete_record = cls.query.filter_by(id=id)
+        
+        if delete_record.first():
+
+            delete_record.delete()
+            db.session.commit()
+            return True
+        else:
+            return False

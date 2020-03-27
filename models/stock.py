@@ -6,6 +6,7 @@ class Stock(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     stock = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.String(100), default=datetime.now())
+    inv_id = db.Column(db.Integer, db.ForeignKey('inventories.id'))
 
 
     def create_record(self):

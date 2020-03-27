@@ -126,9 +126,56 @@ def inventories():
         inventory.create_record()
         return redirect(url_for('inventories'))
 
-
-
     return render_template('inventories.html', inventories=inventories)
+
+# deleting an item 
+@app.route('/inventories/delete/<int:id>', methods=['GET','POST'] )
+def deleteInventory(id):
+
+    delete_inventory = Inventories.fetch_by_id(id)
+
+    if delete_inventory:
+
+        print('Record deleted successfully')
+        return redirect(url_for('inventories'))
+    else:
+
+        print('record not found')
+        return redirect(url_for('inventories'))
+
+
+@app.route('/make_sale/<id>', methods=['GET','POST'])
+def make_sale(id):
+
+    if request.method == 'POST':
+
+
+        quantity = request.form['quantity']
+
+        sale = Sale(inv_id=id, quantity=quantity)
+        sale.create_record()
+
+        return redirect(url_for('inventories'))
+
+@app.route('/addstock/<id>', methods=['GET','POST'])
+def add_stock(id):
+
+    if request.method == 'POST':
+
+
+        stock = request.form['stock']
+
+        new_stock = Stock(inv_id=id, stock=stock)
+        new_stock.create_record()
+        return redirect(url_for('inventories'))
+
+@app.route('/viewsales/<id>', methods=['GET','POST'])
+def viewsales(id):
+
+    sales = Sale.fetch_by_id(id)
+
+    return render_template('viewsales.html', sales=sales)
+
 
 if __name__ == '__main__':
     app.run()

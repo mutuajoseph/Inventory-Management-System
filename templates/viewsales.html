@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} View Sales {% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for each in sales%}
+          <tr>
+            <td>1</td>
+            <td>{{each.quantity}}</td>
+            <td>{{each.created_at}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+    </table>
+    </div>
+    <div class="col">
+      Sales per month
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block footer %} {% endblock %}
