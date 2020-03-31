@@ -10,6 +10,6 @@ class DevelopmentConfig(Config):
     JWT_SECRET_KEY = 'some-secret-key'
 
 class ProductionConfig():
-    SQLALCHEMY_DATABASE_URI = 'postgres://pcdqdnreapwvmm:15b3f90225665ba6512e182b97863bdbcbcc574503e03622ce856f573439aacd@ec2-54-159-112-44.compute-1.amazonaws.com:5432/d848k7580t8pdn'
+    SQLALCHEMY_DATABASE_URI = 'postgres://rftwdbhjfsozch:e52930939d3f2f7281ae4e35e6546de7ddcec230f6e1c129e07d8d600a718102@ec2-46-137-84-173.eu-west-1.compute.amazonaws.com:5432/d1ki50794ckm6l'
     SECRET_KEY = 'This is an INSECURE secret!! DO NOT use this in production!!'
 

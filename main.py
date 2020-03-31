@@ -27,11 +27,11 @@ login_manager = LoginManager(app)
 # Database Name – Database name to which you want to connect. Here we are using Database named “postgres_db”.
 
 
-connection = psycopg2.connect(user ="pcdqdnreapwvmm", 
-                             password ="15b3f90225665ba6512e182b97863bdbcbcc574503e03622ce856f573439aacd", 
-                             host ="ec2-54-159-112-44.compute-1.amazonaws.com", 
+connection = psycopg2.connect(user ="rftwdbhjfsozch", 
+                             password ="e52930939d3f2f7281ae4e35e6546de7ddcec230f6e1c129e07d8d600a718102", 
+                             host ="ec2-46-137-84-173.eu-west-1.compute.amazonaws.com", 
                              port ="5432", 
-                             database ="d848k7580t8pdn")
+                             database ="d1ki50794ckm6l")
 
 
 # We then create a cursor object connection using the connection object created above 
@@ -125,53 +125,7 @@ def login():
 @app.route('/')
 def home():    
    
-    # cursor.execute("SELECT * FROM cost;")
-    # cursor.execute("SELECT COUNT(product) FROM IMS;")
-
-
-    recordsEntered = cursor.fetchall()
-
-    print(recordsEntered)
-
-    connection.commit()
-    # cursor.close()
-    # connection.close()
-
-    # create the line graph
-
-    record1 = []
-    record2 = []
-    record3 = []
-
-    for recordEntered in recordsEntered:
-
-        record1.append(recordEntered[1])
-        record2.append(recordEntered[2])
-        record3.append(recordEntered[3])
-
-    
-    print("x-labels: ",record1)
-    print("datapoints: ",record2)
-
-    line_chart = pygal.Line()
-    line_chart.title = 'Daily transport cost in the Month of March 2020'
-    line_chart.x_labels = record1
-    line_chart.add('day_amount',  record2)
-    line_chart.add('night_amount', record3)
-    line_chart.render()
-
-    line = line_chart.render_data_uri()
-
-    # CREATE A PIE CHART 
-
-    pie_chart = pygal.Pie()
-    pie_chart.title = 'Products vs Services'
-    # pie_chart.add()
-    # pie_chart.add()
-
-
-
-    return render_template('home.html',line=line)
+    return render_template('home')
 
 @app.route('/about')
 def about():
