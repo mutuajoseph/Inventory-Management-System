@@ -4,13 +4,30 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-        <div class="container">
-            <div id="chart">
-                <embed type="image/svg+xml" src= {{ line|safe }} />
-            </div>
+          
+<div class="card  text-white">
+<img src="/static/img/white.jpg" class="card-img" alt="...">
+<div class="card-img-overlay">
+   <br>
+   <br>
+   <div class="container text-dark d-flex justify-content-center mb-5">
+        <h1 style="font-family:fantasy;">INVENTORY MANAGEMENT SYSTEM</h1>
+   </div>
+   <br>
+   <br>
+   <br>
+   <br>
+
+    <div class="card text-center border-light text-dark">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-outline-dark mr-5">Get started</a>
+            <a href="#" class="btn btn-outline-dark">Our Team</a>
         </div>
-       
-   
+        </div>
+
+</div>
 {% endblock %}
 {% block footer %} {% endblock %}
 

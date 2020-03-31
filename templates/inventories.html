@@ -73,7 +73,13 @@
             <td>{{each.type}}</td>
             <td>{{each.buying_price}}</td>
             <td>{{each.selling_price}}</td>
-            <td></td>
+            <td>
+              {% for st in available_stock %}
+                  {% if st[0] == each.id %}
+                      {{ st[1] }}
+                  {% endif %}
+              {% endfor %}
+            </td>
             <td>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addstock">Add Stock</button>
                 <!--add stock modal  -->
@@ -133,7 +139,53 @@
                   </div>
 
                 <a href="{{url_for('viewsales', id=each.id)}}"><button type="button" class="btn btn-warning">View Sales</button></a>
-                <button type="button" class="btn btn-info">Edit Inventory</button>
+
+                <!-- edit an inventory -->
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editInventory{{each.id}}">Edit Inventory</button>
+                
+                <!-- modal class for edit -->
+
+                <div class="modal fade" id="editInventory{{ each.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit employee {{ each.id }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/inventories/update/{{ each.id }}" method="post">
+                            <div class="form-group">
+                                    <label for="fullName">Name</label>
+                                    <input value="{{ each.name }}" type="text" name="name" class="form-control form-control-sm" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                <select name="newtype" class="form-control form-control-sm" required>
+                                    <option selected >{{ each.type }}</option>
+                                    <option value="v">Vegetable</option>
+                                    <option value="F">Fruit</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="buying_price">Buying Price</label>
+                                <input value="{{ each.buying_price }}" type="number" name="buying_price" class="form-control form-control-sm" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Selling Price</label>
+                                <input value="{{ each.selling_price }}" type="number" name="selling_price" class="form-control form-control-sm" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                            </div>
+                        </form>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
                 <!-- delete button -->
 
                 <a href="{{url_for('deleteInventory', id= each.id)}}"><button type="button" class="btn btn-danger">Delete</button></a>

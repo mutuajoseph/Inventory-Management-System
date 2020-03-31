@@ -34,3 +34,19 @@ class Inventories(db.Model):
             return True
         else:
             return False
+
+    # update by id
+    @classmethod
+    def update_by_id(cls,id, name=None, type=None, selling_price=None, buying_price=None):
+        record = cls.query.filter_by(id=id).first()
+
+        if record:
+
+            record.name == name
+            record.type == type
+            record.buying_price == buying_price
+            record.selling_price == selling_price
+            db.session.commit()
+            return True
+        else:
+            return False
