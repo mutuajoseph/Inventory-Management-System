@@ -11,7 +11,7 @@ import pygal
 
 
 app = Flask(__name__)
-app.config.from_object(DevelopmentConfig)
+app.config.from_object(ProductionConfig)
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
