@@ -11,7 +11,7 @@ import pygal
 
 
 app = Flask(__name__)
-app.config.from_object(ProductionConfig)
+app.config.from_object(DevelopmentConfig)
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
@@ -207,11 +207,11 @@ def inventories():
     if request.method == 'POST':
 
         name = request.form['name']
-        type = request.form['type']
+        mytype = request.form['mytype']
         buying_price = request.form['buying_price']
         selling_price = request.form['selling_price']
 
-        inventory = Inventories(name=name, type=type, buying_price=buying_price, selling_price=selling_price)
+        inventory = Inventories(name=name, mytype=mytype, buying_price=buying_price, selling_price=selling_price)
         inventory.create_record()
         return redirect(url_for('inventories'))
 
@@ -274,7 +274,7 @@ def edit_employees(id):
 
     if request.method == 'POST':
         record.name = request.form['name']
-        record.type = request.form['newtype']
+        record.mytype = request.form['newtype']
         record.buying_price = request.form['buying_price']
         record.selling_price = request.form['selling_price']
 

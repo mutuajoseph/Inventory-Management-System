@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Type</label>
-                            <select class="form-control" name="type" id="exampleFormControlSelect1">
+                            <select class="form-control" name="mytype" id="exampleFormControlSelect1">
                               <option>Vegetable</option>
                               <option>Fruits</option>
                             </select>
@@ -70,7 +70,7 @@
             <tr>
             <td>{{each.id}}</td>
             <td>{{each.name}}</td>
-            <td>{{each.type}}</td>
+            <td>{{each.mytype}}</td>
             <td>{{each.buying_price}}</td>
             <td>{{each.selling_price}}</td>
             <td>
@@ -163,7 +163,7 @@
                             <div class="form-group">
                                 <label for="type">Type</label>
                                 <select name="newtype" class="form-control form-control-sm" required>
-                                    <option selected >{{ each.type }}</option>
+                                    <option selected >{{ each.mytype }}</option>
                                     <option value="v">Vegetable</option>
                                     <option value="F">Fruit</option>
                                 </select>

@@ -4,7 +4,7 @@ class Inventories(db.Model):
     __tablename__ = 'inventories'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100),nullable=False)
-    type = db.Column(db.String(100), nullable=False)
+    mytype = db.Column(db.String(100), nullable=False)
     buying_price = db.Column(db.Integer, nullable=False)
     selling_price = db.Column(db.Integer, nullable=False)
     sales = db.relationship('Sale', backref='inventory', lazy=True)
